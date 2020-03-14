@@ -1,0 +1,31 @@
+{
+  "name": "news_zzy_server",
+  "version": "1.0.0",
+  "description": "zzy news server by znh",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhunh/news_zzy_server.git"
+  },
+  "keywords": [
+    "koa",
+    "mongoose"
+  ],
+  "author": "zhunh&zzy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhunh/news_zzy_server/issues"
+  },
+  "homepage": "https://github.com/zhunh/news_zzy_server#readme",
+  "dependencies": {
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-logger": "^3.2.1",
+    "koa-route": "^3.2.0",
+    "mongoose": "^5.9.4"
+  }
+}
