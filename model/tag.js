@@ -1,4 +1,4 @@
-const db = require("../db/con")
+const db = require("../db/conn")
 
 const TagSchema = db.Schema({
     name:String

@@ -1,4 +1,4 @@
-const db = require('../db/con')
+const db = require('../db/conn')
 
 const NewsSchema = db.Schema({
     title:{
