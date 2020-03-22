@@ -22,10 +22,12 @@
   },
   "homepage": "https://github.com/zhunh/news_zzy_server#readme",
   "dependencies": {
+    "jsonwebtoken": "^8.5.1",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",
     "koa-logger": "^3.2.1",
     "koa-route": "^3.2.0",
+    "koa2-cors": "^2.0.6",
     "mongoose": "^5.9.4"
   }
 }
