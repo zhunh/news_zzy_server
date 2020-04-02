@@ -92,3 +92,16 @@ module.exports.login = async (ctx) => {
         }
     }
 }
+// 用户注册
+module.exports.register = async (ctx)=>{
+    let u = ctx.request.body
+    let user = new User(u)
+
+    user.save().then(res=>{
+        ctx.response.body = "注册成功"
+    }).catch(err=>{
+        ctx.response.body = err.message
+    })
+
+    ctx.response.body = "注册成功"
+}

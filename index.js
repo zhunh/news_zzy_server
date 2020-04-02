@@ -44,6 +44,7 @@ app.use(route.get('/getTagList',handler.getTagList))
 app.use(route.get('/getCommentList',handler.getCommentList))
 app.use(route.post('/addComment',handler.addComment))
 app.use(route.post('/login',handler.login))
+app.use(route.post('/register',handler.register))
 
 if (!module.parent) app.listen(3000);
 console.log("server start at port 3000..")
