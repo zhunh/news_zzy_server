@@ -12,6 +12,13 @@ module.exports.getNewsList = async (ctx) => {
     let data = await News.find({})
     ctx.body = data
 }
+// 搜索新闻
+module.exports.searchNews = async (ctx) => {
+    let q = ctx.request.body
+    console.log(q.key)
+    let data = await News.find({'title': eval('/' + q.key + '/')})
+    ctx.body = data
+}
 // 根据id获取某条新闻
 module.exports.getNewsById = async (ctx) => {
     let q = ctx.query

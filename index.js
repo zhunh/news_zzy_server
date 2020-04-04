@@ -5,31 +5,17 @@ const logger = require('koa-logger')
 const route = require('koa-route')
 const bodyparse = require('koa-bodyparser')
 const cors = require('koa2-cors');
+const path = require('path')
+const static = require('koa-static')
 const auth = require('./auth/auth')
+
+const staticPath = './static'
 
 app.use(logger())
 app.use(bodyparse())
+
+app.use(static(path.join(__dirname, staticPath)))
 // 跨域
-// app.use(async (ctx, next) => {
-//     ctx.set('Access-Control-Allow-Origin', '*');
-//     await next();
-// });
-
-// app.use(async (ctx, next)=> {
-//     ctx.set('Access-Control-Allow-Origin', '*');
-//     ctx.set('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild');
-//     ctx.set('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
-//     if (ctx.method == 'OPTIONS') {
-//       ctx.body = 200; 
-//     } else {
-//       await next();
-//     }
-//   });
-// app.use(async function(ctx) {
-//   ctx.body = 'Hello World';
-// });
-// app.use(auth)
-
 app.use(cors())
 var handler = require('./handler/handler')
 
@@ -40,6 +26,7 @@ app.use(route.get('/getNewsList',handler.getNewsList))
 app.use(route.get('/getNewsById',handler.getNewsById))
 app.use(route.get('/getNewsByTag',handler.getNewsByTag))
 app.use(route.post('/addNews',handler.addNews))
+app.use(route.post('/searchNews',handler.searchNews))
 app.use(route.get('/getTagList',handler.getTagList))
 app.use(route.get('/getCommentList',handler.getCommentList))
 app.use(route.post('/addComment',handler.addComment))
