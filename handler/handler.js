@@ -31,6 +31,12 @@ module.exports.getNewsByTag = async (ctx) => {
     let data = await News.find({'tags':q.tag})
     ctx.body = data
 }
+// 根据 author 获取新闻列表
+module.exports.getNewsByAuthor = async (ctx) => {
+    let q = ctx.query
+    let data = await News.find({'author':q.author})
+    ctx.body = data
+}
 // 添加新闻
 module.exports.addNews = async (ctx) => {
     let data = ctx.request.body
@@ -53,6 +59,13 @@ module.exports.getCommentList = async (ctx) => {
     let q = ctx.query
     let data = await Comment.find({'news_id':q.news_id})
     ctx.body = data
+}
+// 删除新闻
+module.exports.deleteNewsById = async (ctx) => {
+    let b = ctx.request.body
+    res = await News.deleteOne({_id:b.id})
+    console.log(res)
+    ctx.body = "删除成功"
 }
 // 添加评论
 module.exports.addComment = async (ctx) => {
@@ -111,4 +124,18 @@ module.exports.register = async (ctx)=>{
     })
 
     ctx.response.body = "注册成功"
+}
+// 根据 author 获取评论
+module.exports.getCommentByAuthor = async (ctx) => {
+    let q = ctx.query
+    console.log(q)
+    let data = await Comment.find({'user':q.author})
+    ctx.body = data
+}
+// 删除新闻
+module.exports.deleteCommentById = async (ctx) => {
+    let b = ctx.request.body
+    res = await Comment.deleteOne({_id:b.id})
+    console.log(res)
+    ctx.body = "删除成功"
 }
